@@ -1,0 +1,1 @@
+See https://github.com/dihan/runpod-hunyuan/tree/wanvideo1.0
