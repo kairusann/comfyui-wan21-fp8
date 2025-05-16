@@ -52,7 +52,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=${{ github.ref_name }}
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'legacy') }}
 
       - name: Build and push
         uses: docker/build-push-action@v5
@@ -62,8 +62,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           build-args: |
             PYTHON_VERSION=3.11
-            TORCH_VERSION=2.8.0
-            CUDA_VERSION=12.8.1
+            TORCH_VERSION=2.4.0
+            CUDA_VERSION=12.4.1
             COMFYUI_VERSION=latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
